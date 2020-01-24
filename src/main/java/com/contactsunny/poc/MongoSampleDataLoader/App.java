@@ -38,6 +38,8 @@ public class App implements CommandLineRunner {
          mongoCollectionName = args[2];
          documentCount = Integer.parseInt(args[3]);
 
+        mongoConnectionString = mongoConnectionString + "/" + mongoDatabaseName;
+
         SimpleMongoDbFactory simpleMongoDbFactory = new SimpleMongoDbFactory(new MongoClientURI(mongoConnectionString));
         mongoTemplate = new MongoTemplate(simpleMongoDbFactory);
 
